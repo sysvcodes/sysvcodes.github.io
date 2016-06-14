@@ -45,8 +45,10 @@ function loadFile(param){
 		
 		content = content.replace(/\/\//g, "||");
 		content = content.replace(/\t/g, "    ");
-		content = content.replace(/([;#><,+?^=!:${}()\[\]&])/g, 
+		content = content.replace(/([;#><,+?^=!:$()\[\]&])/g, 
 			"<font style='color:#00FFFF;font-weight:bold;'>$1</font>");
+		content = content.replace(/({})/g, 
+			"<font style='color:#bfbfbf;font-weight:bold;'>$1</font>");
 		content = content.replace(/\/\*/g, "<font style='color:#bfbfbf;font-style:italic;'>/*");
 		content = content.replace(/\*\//g, "*/</font>");
 		content = content.replace(/def/g, "<font style='color:#FF80C0;font-weight:bold;'>def</font>");
