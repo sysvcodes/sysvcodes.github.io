@@ -68,6 +68,7 @@
 		<li><a href="#ponto-de-inicializacao">Ponto de inicialização</a></li>
 		<li><a href="#controle-de-fluxo">Controle de fluxo</a></li>
 		<li><a href="#acoplamento-de-codigo-asm">Acoplamento de código ASM</a></li>
+		<li><a href="#opcoes-linker">Opções para linker</a></li>
 		<li><a href="#chamadas-ao-sistema">
 			Chamadas a funções da API do sistema</a></li>
 		<li><a href="#operadores">
@@ -292,6 +293,17 @@
 			&nbsp;&nbsp;&nbsp;&nbsp;mov [ebp+28], 10<br>
 			&nbsp;&nbsp;&nbsp;&nbsp;mov [ebp+32], 20<br>
 		}<br>
+	</p>
+	<br>
+	<span class="titulo1" id="opcoes-linker">
+		Opções para linker.</span>
+	<p class="paragrafo1">
+		Ao utilizar funções da API do sistema é necessário especificar o nome da 
+		biblioteca<br> que a função pertence.
+		<br>
+		<br>
+		linker [ lib, kernel32 ]<br>
+		linker [ lib, user32 ]<br>
 	</p>
 	<br>
 	<span class="titulo1" id="chamadas-ao-sistema">
