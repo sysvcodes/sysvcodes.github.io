@@ -122,6 +122,7 @@ $(document).ready(function(){
 			lineTemp = ""+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
 		lineContent = "<font style='color:gray;'>"+ lineTemp +"</font>";
 		finalSource += lineContent +"<br>";
+		document.title = "SPL - "+ lineTemp + " lines!";
 		
 		$("#content").html(finalSource);
 	});
