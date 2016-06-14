@@ -99,6 +99,7 @@ $(document).ready(function(){
 							b_flag = false;
 							console.log(s1[b]);
 							finalSource += "<font style='color:#00FF00;'>\"" + s1[b] +"</font>";
+							finalSource = finalSource.replace(/<NLNL>/g, "<br>");
 						} else if (b_flag == false) {
 							b_flag = true;
 							finalSource += s1[b];
@@ -111,7 +112,7 @@ $(document).ready(function(){
 			}
 		}
 		
-		finalSource = finalSource.replace(/<NLNL>/g, "<br><br>");
+		//finalSource = finalSource.replace(/<NLNL>/g, "<br><br>");
 		
 		$("#content").html(finalSource);
 	});
