@@ -61,8 +61,7 @@ $(document).ready(function(){
 		content = content.replace(/ continue /g, "<font style='color:#00FFFF;font-weight:bold;'> continue </font>");
 		
 		// Processa comentários e strings.
-		content = content.replace(/\n\n/g, "\n<NLNL>");
-		content = content.replace(/\r\n\r\n/g, "\n<NLNL>");
+		content = content.replace(/\r\n\r\n/g, "\r\n     \r\n");
 		
 		var splited = content.split(/\n/);
 		var finalSource = "";
@@ -101,33 +100,9 @@ $(document).ready(function(){
 							b_flag = false;
 							console.log(s1[b]);
 							finalSource += "<font style='color:#00FF00;'>\"" + s1[b] +"\"</font>";
-							
-							//if (finalSource.indexOf("<NLNL>") != -1) {
-								// c_flag = true;
-								// var lineCounterB = lineCounter + 1;
-								// var lineTempB = ""+ lineCounterB +"";
-								// if (lineTempB.length == 1) {
-									// lineTempB = "&nbsp;&nbsp;0"+ lineCounterB +"&nbsp;&nbsp;&nbsp;&nbsp;";
-								// } else if (lineTempB.length == 2) {
-									// lineTempB = "&nbsp;&nbsp;"+ lineCounterB +"&nbsp;&nbsp;&nbsp;&nbsp;";
-								// } else if (lineTempB.length == 3) {
-									// lineTempB = "&nbsp;"+ lineCounterB +"&nbsp;&nbsp;&nbsp;&nbsp;";
-								// } else if (lineTempB.length == 4) {
-									// lineTempB = ""+ lineCounterB +"&nbsp;&nbsp;&nbsp;&nbsp;";
-								// }
-								// lineContent = "<font style='color:gray;'>"+ lineTempB +"</font>";
-								// finalSource += lineContent;
-								// lineCounter++;
-								// console.log(finalSource);
-							//}
-							// --
-							
 						} else if (b_flag == false) {
 							b_flag = true;
-							if (s1[b].indexOf("<NLNL>") != -1) {
-								console.log(s1[b]);
-							} else 
-								finalSource += s1[b];
+							finalSource += s1[b];
 						}
 					}
 					finalSource += "<br>";
@@ -136,8 +111,6 @@ $(document).ready(function(){
 				lineCounter++;
 			}
 		}
-		
-		//finalSource = finalSource.replace(/<NLNL>/g, "<br><br>");
 		
 		$("#content").html(finalSource);
 	});
