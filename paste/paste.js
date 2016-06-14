@@ -102,7 +102,7 @@ $(document).ready(function(){
 							console.log(s1[b]);
 							finalSource += "<font style='color:#00FF00;'>\"" + s1[b] +"\"</font>";
 							
-							if (finalSource.indexOf("<NLNL>") != -1) {
+							//if (finalSource.indexOf("<NLNL>") != -1) {
 								// c_flag = true;
 								// var lineCounterB = lineCounter + 1;
 								// var lineTempB = ""+ lineCounterB +"";
@@ -118,13 +118,16 @@ $(document).ready(function(){
 								// lineContent = "<font style='color:gray;'>"+ lineTempB +"</font>";
 								// finalSource += lineContent;
 								// lineCounter++;
-								console.log(finalSource);
-							}
+								// console.log(finalSource);
+							//}
 							// --
 							
 						} else if (b_flag == false) {
 							b_flag = true;
-							finalSource += s1[b];
+							if (s1[b].indexOf("<NLNL>") != -1) {
+								console.log(s1[b]);
+							} else 
+								finalSource += s1[b];
 						}
 					}
 					finalSource += "<br>";
