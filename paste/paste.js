@@ -142,7 +142,8 @@ $(document).ready(function(){
 							lineTempB = ""+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
 						}
 						lineContent = "<font style='color:gray;'>"+ lineTempB +"</font>";
-						finalSource += lineContent +"<br><br>";
+						finalSource += "<br>"+ lineContent +"<br>";
+						lineCounter++;
 					}
 				} else
 					finalSource += lineContent + splited[a] +"<br>";
