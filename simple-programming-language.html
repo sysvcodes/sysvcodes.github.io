@@ -100,14 +100,25 @@
 	<span class="titulo1" id="variaveis">
 		Variáveis</span>
 	<p class="paragrafo1">
-		// Definição de várias variáveis na mesma linha.<br>
-		num1 = null, str1 = null, str2 = null, num2 = null<br><br>
+		A memória é gerenciada manualmente pelo programador, contudo quando é definida<br>
+		alguma string ou valor numérico a variável, a alocação da memória e a atribuição<br>
+		dos dados é feita internamente pelo compilador.
+		<br><br>
+		// Definição de múltiplas variáveis na mesma linha.<br>
+		num1 = 0, str1 = null 
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		// Internamente é feito a alocação de espaço na<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;
+		// memória e em seguida é atribuído o valor zero a variável.<br><br>
 		
-		// Utilização de variáveis de maneira dinâmica.<br>
-		variavel = null<br>
-		variavel = alloc 256 // Aloca espaço para 256 bytes.<br>
+		// Utilização...<br>
 		variavel = "String here!"<br>
 		variavel = 100<br>
+		variavel = alloc 256 /* Armazena 256 bytes. */<br>
+		variavel = funcN
 	</p>
 	<br>
 	<span class="titulo1" id="biblioteca">
