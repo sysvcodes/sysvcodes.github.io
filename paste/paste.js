@@ -16,8 +16,6 @@ $(document).ready(function(){
 		if (tecla == 13){
 			window.location.href = "?f="+ $("#filename").val();
 		}
-		// e.preventDefault(e);
-		// return false;
 	});
 	
 	var url = window.location.toString();
@@ -142,7 +140,7 @@ function loadFile(param){
 			lineTemp = ""+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
 		lineContent = "<font style='color:gray;'>"+ lineTemp +"</font>";
 		finalSource += lineContent +"<br>";
-		document.title = "SPL - "+ lineTemp + " lines!";
+		document.title = "SPL - "+ lineCounter + " lines!";
 		
 		$("#content").html(finalSource);
 		$("#content").css("visibility", "visible");
