@@ -62,6 +62,7 @@ $(document).ready(function(){
 		
 		// Processa comentários e strings.
 		content = content.replace(/\n\n/g, "\n<NLNL>");
+		content = content.replace(/\r\n\r\n/g, "\n<NLNL>");
 		
 		var splited = content.split(/\n/);
 		var finalSource = "";
@@ -110,7 +111,7 @@ $(document).ready(function(){
 			}
 		}
 		
-		finalSource = finalSource.replace(/<NLNL>/g, "<br>");
+		finalSource = finalSource.replace(/<NLNL>/g, "<br><br>");
 		
 		$("#content").html(finalSource);
 	});
