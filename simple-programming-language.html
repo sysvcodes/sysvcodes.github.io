@@ -136,11 +136,11 @@
 		Para declaração de funções usamos o comando <i>def</i> e todo código entre <br>as chaves { e } é parte da função.<br><br>
 	
 		// Exemplo 1<br>
-		def functionZero{say "functionZero"}<br><br>
+		def functionZero{/* Code here... */}<br><br>
 		
 		// Exemplo 2<br>
 		def functionOne <br>
-		{ say "Hello world!" ; say "\n" }<br><br>
+		{ /* Code here... */ }<br><br>
 
 		// Exemplo 3<br>
 		def functionTwo (valor1, valor2) {<br>
@@ -153,7 +153,7 @@
 		functionThree <br>
 		(param1, param2, paramN) {<br>
 			&nbsp;&nbsp;&nbsp;&nbsp;
-			say param1 ." - ". param2 ." - ". paramN ."\n"<br>
+			// Code here...<br>
 		}<br><br>
 
 		// Exemplo 5<br>
@@ -236,7 +236,7 @@
 				// variável interna do comando for.<br>
 				for {<br>
 					&nbsp;&nbsp;&nbsp;&nbsp;
-					say "Valor: ". # ."\n";<br>
+					// Code here...<br>
 					&nbsp;&nbsp;&nbsp;&nbsp;
 					if (# == 9)<br>
 					&nbsp;&nbsp;&nbsp;&nbsp;
@@ -247,12 +247,12 @@
 				Outros exemplos...<br>Imprimir números de 0 a 9...<br><br>
 				for (a=0; a<=9; a++) <br>
 					&nbsp;&nbsp;&nbsp;&nbsp;
-					say "Numero: ". a ."\n";<br>
+					// Code here...<br>
 				<br>
 				Utilização de múltiplas variáveis.<br><br>
 				for (a=0,b=1,c=2; a<=9; a++,b+=2,c+=3) <br>
 					&nbsp;&nbsp;&nbsp;&nbsp;
-					say "A: ". a ." - B: ". b ." - C: ". c ."\n";<br>
+					// Code here...<br>
 				<br>
 			</td>
 		</tr>
