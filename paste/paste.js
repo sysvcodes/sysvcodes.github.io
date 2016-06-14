@@ -16,6 +16,8 @@ $(document).ready(function(){
 		if (tecla == 13){
 			window.location.href = "?f="+ $("#filename").val();
 		}
+		// e.preventDefault(e);
+		// return false;
 	});
 	
 	var url = window.location.toString();
@@ -128,6 +130,7 @@ function loadFile(param){
 			}
 		}
 		
+		var lineCounterB = lineCounter + 1;
 		lineTemp = ""+ lineCounterB +"";
 		if (lineTemp.length == 1) 
 			lineTemp = "&nbsp;&nbsp;0"+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
@@ -139,7 +142,7 @@ function loadFile(param){
 			lineTemp = ""+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
 		lineContent = "<font style='color:gray;'>"+ lineTemp +"</font>";
 		finalSource += lineContent +"<br>";
-		document.title = "SPL - "+ lineCounter + " lines!";
+		document.title = "SPL - "+ lineTemp + " lines!";
 		
 		$("#content").html(finalSource);
 		$("#content").css("visibility", "visible");
