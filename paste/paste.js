@@ -61,6 +61,8 @@ $(document).ready(function(){
 		content = content.replace(/ continue /g, "<font style='color:#00FFFF;font-weight:bold;'> continue </font>");
 		
 		// Processa comentários e strings.
+		content = content.replace(/\/n\/n/g, "<NLNL>");
+		
 		var splited = content.split(/\n/);
 		var finalSource = "";
 		var lineCounter = 1;
@@ -84,7 +86,7 @@ $(document).ready(function(){
 					var s1 = line.split("||");
 					var p2 = s1[1].replace(/color:/g, "");
 					var p2 = p2.replace(/font-weight:/g, "");
-					finalSource += lineContent + s1[0] + "<font style='color:#bfbfbf;font-style:italic;'>//" + p2 +"</font>"+ "\n";
+					finalSource += lineContent + s1[0] + "<font style='color:#bfbfbf;font-style:italic;'>//" + p2 +"</font>"+ "<br>";
 				} else if (line.indexOf("\"") != -1) {
 					var s1 = line.split("\"");
 					var p2 = s1[1].replace(/color:/g, "");
@@ -101,12 +103,14 @@ $(document).ready(function(){
 							finalSource += s1[b];
 						}
 					}
-					finalSource += "\n";
+					finalSource += "<br>";
 				} else
-					finalSource += lineContent + splited[a] +"\n";
+					finalSource += lineContent + splited[a] +"<br>";
 				lineCounter++;
 			}
 		}
+		
+		finalSource = finalSource.replace(/<NLNL>/g, "<br>");
 		
 		$("#content").html(finalSource);
 	});
