@@ -93,19 +93,57 @@ $(document).ready(function(){
 					var p2 = s1[1].replace(/color:/g, "");
 					var p2 = p2.replace(/font-weight:/g, "");
 					var b_flag = false;
+					var c_flag = false;
 					finalSource += lineContent;
+					
 					for (var b=0; b<s1.length; b++) {
 						if (b_flag == true) {
 							b_flag = false;
 							console.log(s1[b]);
 							finalSource += "<font style='color:#00FF00;'>\"" + s1[b] +"\"</font>";
-							finalSource = finalSource.replace(/<NLNL>/g, "<br>");
+							
+							//finalSource = finalSource.replace(/<NLNL>/g, "<br>");
+							// --
+							// var lineCounterB = lineCounter + 1;
+							// var lineTempB = ""+ lineCounterB +"";
+							// if (lineTempB.length == 1) {
+								// lineTempB = "&nbsp;&nbsp;0"+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
+							// } else if (lineTempB.length == 2) {
+								// lineTempB = "&nbsp;&nbsp;"+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
+							// } else if (lineTempB.length == 3) {
+								// lineTempB = "&nbsp;"+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
+							// } else if (lineTempB.length == 4) {
+								// lineTempB = ""+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
+							// }
+							// lineContent = "<font style='color:gray;'>"+ lineTempB +"</font>";
+							if (finalSource.indexOf("<NLNL>") != -1) {
+								c_flag = true;
+							}
+							// --
+							
 						} else if (b_flag == false) {
 							b_flag = true;
 							finalSource += s1[b];
 						}
 					}
-					finalSource += "<br>";
+					if (c_flag == false) {
+						finalSource += "<br>";
+					} else {
+						c_flag = false;
+						var lineCounterB = lineCounter + 1;
+						var lineTempB = ""+ lineCounterB +"";
+						if (lineTempB.length == 1) {
+							lineTempB = "&nbsp;&nbsp;0"+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
+						} else if (lineTempB.length == 2) {
+							lineTempB = "&nbsp;&nbsp;"+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
+						} else if (lineTempB.length == 3) {
+							lineTempB = "&nbsp;"+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
+						} else if (lineTempB.length == 4) {
+							lineTempB = ""+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
+						}
+						lineContent = "<font style='color:gray;'>"+ lineTempB +"</font>";
+						finalSource += lineContent +"<br>";
+					}
 				} else
 					finalSource += lineContent + splited[a] +"<br>";
 				lineCounter++;
