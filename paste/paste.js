@@ -85,7 +85,7 @@ $(document).ready(function(){
 					var p2 = s1[1].replace(/color:/g, "");
 					var p2 = p2.replace(/font-weight:/g, "");
 					finalSource += lineContent + s1[0] + "<font style='color:#bfbfbf;font-style:italic;'>//" + p2 +"</font>"+ "<br>";
-				} else if (line.indexOf("\"") != -1) {
+				}/* else if (line.indexOf("\"") != -1) {
 					var s1 = line.split("\"");
 					var p2 = s1[1].replace(/color:/g, "");
 					var p2 = p2.replace(/font-weight:/g, "");
@@ -102,7 +102,7 @@ $(document).ready(function(){
 						}
 					}
 					finalSource += "<br>";
-				} else
+				} */else
 					finalSource += lineContent + splited[a];
 				lineCounter++;
 			}
