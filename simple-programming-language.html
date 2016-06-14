@@ -10,6 +10,10 @@
 			font-size: 15px;
 			font-weight: bold;
 		}
+		.titulo2 {
+			font-weight: bold;
+			font-style: italic;
+		}
 		.paragrafo1 {
 			padding-left: 15px;
 			padding-right: 15px;
@@ -19,6 +23,23 @@
 			padding-left: 15px;
 			padding-right: 15px;
 			font-size: 13px;
+		}
+		.td1 {
+			padding-left: 15px;
+			padding-right: 15px;
+			font-size: 14px;
+			vertical-align: top;
+		}
+		.td2 {
+			padding-left: 15px;
+			padding-right: 15px;
+			font-size: 14px;
+		}
+		.td3 {
+			font-size: 14px;
+		}
+		.td4 {
+			vertical-align: top;
 		}
 	</style>
 </head>
@@ -33,7 +54,7 @@
    \ `\____\ \_\   \ \____/
     \/_____/\/_/    \/___/ 
                            
- <i>Simple Programming Language</i>
+ <i>Simple Programming Language - v1.0</i>
 </pre>
 </div>
 <div class="conteudo">
@@ -41,20 +62,31 @@
 		<ul class="ul1">
 		<li><a href="#descricao">Descrição</a></li>
 		<li><a href="#caracteristicas">Características</a></li>
+		<li><a href="#variaveis">Variáveis</a></li>
+		<li><a href="#biblioteca">Bibliotecas</a></li>
+		<li><a href="#funcoes">Funções</a></li>
+		<li><a href="#ponto-de-inicializacao">Ponto de inicialização</a></li>
+		<li><a href="#controle-de-fluxo">Controle de fluxo</a></li>
+		<li><a href="#acoplamento-de-codigo-asm">Acoplamento de código ASM</a></li>
+		<li><a href="#chamadas-ao-sistema">
+			Chamadas a funções da API do sistema</a></li>
+		<li><a href="#operadores">
+			Operadores, constantes e caracteres especiais</a></li>
 		</ul>
 	</p>
 	<span class="titulo1" id="descricao">Descrição</span>
 	<p class="paragrafo1">
 		Não foram muitos motivos que levaram a criação da linguagem, porém dentre<br>
 		eles esta a possibilidade de ter certo controle sobre a sintaxe, podendo<br>
-		desenvolver funcionalidades específicas para a linguagem, deixando a mesma <br>
-		principalmente mais resumida, como também desenvolver funcionalidades<br>
-		voltadas para o cenário da segurança, tornando a linguagem fácil para o<br>
-		desenvolvimento de ferramentas e realização de tarefas.
+		desenvolver funcionalidades específicas, deixando a mesma 
+		principalmente <br>mais resumida. Como também desenvolver funcionalidades
+		voltadas para o <br>cenário da segurança, tornando a linguagem fácil para o
+		desenvolvimento <br>de ferramentas e realização de tarefas.
 		<br><br>
 		Este texto tem como intuito esclarecer algumas questões a respeito da<br>
 		linguagem, como também servir de referência para quem faz uso da mesma. 
 	</p>
+	<br>
 	<span class="titulo1" id="caracteristicas">Características</span>
 	<p class="paragrafo1">
 		<ul>
@@ -63,10 +95,401 @@
 		<li>Estruturada</li>
 		</ul>
 	</p>
-	<span class="titulo1"></span>
+	<br>
+	<span class="titulo1" id="variaveis">
+		Variáveis</span>
 	<p class="paragrafo1">
+		Utilização de variáveis estáticas para números e strings.<br><br>
+		numeroA = 10<br>
+		numeroB = 20<br>
+		stringA = "Minha string 1"<br>
+		stringB = "Minha string 2"<br>
+		<br>
+		// Definição de várias variáveis na mesma linha.<br>
+		num1 = 10, str1 = "str 1", str2 = "str 2", num2 = 20<br><br>
 		
+		Utilização de variáveis de maneira dinâmica.<br><br>
+		variavel = null<br>
+		variavel = alloc 256 // Aloca espaço para 256 bytes.<br>
+		variavel = "String here!"<br>
+		variavel = 100<br>
 	</p>
+	<br>
+	<span class="titulo1" id="biblioteca">
+		Bibliotecas.</span>
+	<p class="paragrafo1">
+		É possível utilizar tanto a biblioteca padrão como bibliotecas externas.<br>
+		O nome da biblioteca é o mesmo nome do arquivo sem a extensão. Ao<br>
+		referenciar o nome da mesma o compilador procura o arquivo, se não <br>
+		existir procura na biblioteca padrão. Para definição utiliza-se o comando<br>
+		<i>req</i>.<br><br>
+		
+		req io // Utilização da biblioteca padrão de entrada e saída.<br>
+		req minha-lib // Utiliza biblioteca própria.<br>
+		req dir/lib-A // Utiliza biblioteca própria armazenada em diretório.<br>
+	</p>
+	<br>
+	<span class="titulo1" id="funcoes">
+		Funções</span>
+	<p class="paragrafo1">
+		Para declaração de funções usamos o comando <i>def</i> e todo código entre <br>as chaves { e } é parte da função.<br><br>
+	
+		// Exemplo 1<br>
+		def functionZero{say "functionZero"}<br><br>
+		
+		// Exemplo 2<br>
+		def functionOne <br>
+		{ say "Hello world!" ; say "\n" }<br><br>
+
+		// Exemplo 3<br>
+		def functionTwo (valor1, valor2) {<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			ret valor1 + valor2<br>
+		}<br><br>
+
+		// Exemplo 4<br>
+		def<br>
+		functionThree <br>
+		(param1, param2, paramN) {<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			say param1 ." - ". param2 ." - ". paramN ."\n"<br>
+		}<br><br>
+
+		// Exemplo 5<br>
+		def functionFour<br>
+		(valora, <br>
+		valorb)<br>
+		{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			// Code here...<br>
+		}<br><br>
+		Para retornar dados utiliza-se o comando <i>ret</i>.<br><br>
+		
+		// Passagem de parâmetros para função.<br>
+		def functionHere (valor1, valor2) {<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			ret valor1 + valor2 // Retorna resultado da soma.<br>
+		}<br>
+	</p>
+	<br>
+	<span class="titulo1" id="ponto-de-inicializacao">
+		Ponto de inicialização.</span>
+	<p class="paragrafo1">
+		Como na linguagem C, em SPL é necessário definir o ponto de inicialização<br>
+		da aplicação, no caso utilizando a função <i>entry</i>.<br><br>
+		
+		def entry {<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			// Code here...<br>
+		}<br>
+	</p>
+	<br>
+	<span class="titulo1" id="controle-de-fluxo">
+		Controle de fluxo</span>
+	<p class="paragrafo1">
+		<table border="0" style="width:500px;">
+		<tr>
+			<td class="td3"><b><i>Comando</i></b></td>
+			<td class="td2"><b><i>Descrição</i></b></td>
+		</tr>
+		<tr>
+			<td class="td4">if</td>
+			<td class="td1">Se condição for verdadeira executa bloco de código. <br><br><i>if</i> (CONDIÇÃO) <i>{</i><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			// Bloco de código...<br>
+			}<br><br></td>
+		</tr>
+		<tr>
+			<td class="td4">elif</td>
+			<td class="td1">
+				Quando vazio executa bloco padrão (comportamento como do comando <i>else</i> da linguagem C), o bloco apenas é executado se não existir nenhuma ocorrência anterior.<br><br>
+				<i>elif</i> { <i><br>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				//code here!</i> <br>
+				}<br><br>
+				Quando é passado parâmetros, ou seja, algum bloco de condições, a sequência de <i>if</i>s finaliza com a primeira ocorrência encontrada.<br><br>
+				<i>elif</i> (CONDIÇÃO) { <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<i>// code here...</i> (comportamento como <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				// do comando <i>else if</i> da linguagem C).<br>
+				}<br>
+				<br>
+			</td>
+		</tr>
+		<tr>
+			<td class="td4">for</td>
+			<td class="td1">
+				Mesmo funcionamento que o comando na linguagem C, mas com alguns adicionais. O bloco condicional é apenas necessário declara-lo se realmente for utilizar o mesmo. Por exemplo, para um bloco com repetições infinitas podemos fazer da seguinte maneira.<br><br>
+				for { <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				// code here!<br>
+				}<br><br>
+				
+				Outra característica é a utilização de sua variável interna. 
+				Internamente ao utilizar o comando for é declarado uma variável 
+				inicializada em 0 e incrementada em 1 a cada execução do bloco de 
+				código. Para acessar a mesma basta utilizar o caractere # (jogo da velha).<br><br>
+				
+				// Imprime números de 0 a 9 utilizando a <br>
+				// variável interna do comando for.<br>
+				for {<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					say "Valor: ". # ."\n";<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					if (# == 9)<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;
+						break;<br>
+				}<br><br>
+				
+				Outros exemplos...<br>Imprimir números de 0 a 9...<br><br>
+				for (a=0; a<=9; a++) <br>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					say "Numero: ". a ."\n";<br>
+				<br>
+				Utilização de múltiplas variáveis.<br><br>
+				for (a=0,b=1,c=2; a<=9; a++,b+=2,c+=3) <br>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					say "A: ". a ." - B: ". b ." - C: ". c ."\n";<br>
+				<br>
+			</td>
+		</tr>
+		<tr>
+			<td class="td4">break</td>
+			<td class="td1">
+				Encerra a execução do comando for, pulando para o bloco de código seguinte.<br><br>
+			</td>
+		</tr>
+		<tr>
+			<td class="td4">continue</td>
+			<td class="td1">
+				Pula para início do comando for.<br><br>
+			</td>
+		</tr>
+		<tr>
+			<td class="td4">do</td>
+			<td class="td1">
+				Quase idêntico ao comando for, com a diferença onde o bloco de código é executado ao menos uma vez antes de verificar o bloco de condições do comando.<br><br>
+				
+				do {<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+					// Code here!<br>
+				} (CONDIÇÃO);<br>
+			</td>
+		</tr>
+		</table>
+	</p>
+	<br>
+	<span class="titulo1" id="acoplamento-de-codigo-asm">
+		Acoplamento de código ASM.</span>
+	<p class="paragrafo1">
+		Para inserção de código ASM utiliza-se o comando <i>asm</i>.
+		É aceito apenas <br>sintaxe Intel. O assembler utilizado é o NASM e para linker o programa ld.
+		<br>
+		<br>
+		asm {<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;mov [ebp+28], 10<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;mov [ebp+32], 20<br>
+		}<br>
+	</p>
+	<br>
+	<span class="titulo1" id="chamadas-ao-sistema">
+		Chamadas a funções da API do sistema.</span>
+	<p class="paragrafo1">
+		Utiliza-se como na linguagem C, especificando o nome da função e seus<br>
+		parâmetros.<br><br>
+		MessageBoxA NULL, "Minha mensagem!", "Meu titulo!", MB_OK<br>
+	</p>
+	<br>
+	<span class="titulo1" id="operadores">
+		Operadores, constantes e caracteres especiais.</span>
+	<p class="paragrafo1">
+		<span class="titulo2">Caracteres especiais</span><br>
+		<table border="0" style="width:500px;">
+		<tr>
+			<td class="td3"><b><i>Caractere</i></b></td>
+			<td class="td2"><b><i>Descrição</i></b></td>
+		</tr>
+		<tr>
+			<td class="td4">=</td>
+			<td class="td1">Atribuição de valores.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">.</td>
+			<td class="td1">Concatena strings.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">//</td>
+			<td class="td1">Comentário de uma única linha ou parte da mesma.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">/*<br> */</td>
+			<td class="td1">Comentário de múltiplas linhas, com início em /* e término em */.<br></td>
+		</tr>
+		<tr>
+			<td class="td4"><i>new-line</i><br>;</td>
+			<td class="td1">Nova linha e ponto e vírgula. Finalização de bloco de comando.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">{<br>}</td>
+			<td class="td1">Define bloco de código. Com início em { e término em }.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">"&nbsp;-&nbsp;(aspas&nbsp;dupla)</td>
+			<td class="td1">String, define uma sequência de caracteres, com início na primeira ocorrência encontrada e término na seguinte. Para inserir um aspas dupla dentro da string basta fazer uso da barra invertida antes do caractere (\").<br></td>
+		</tr>
+		<tr>
+			<td class="td4">#</td>
+			<td class="td1">Acesso a variável interna do comando <i>for</i> e <i>do</i>. Possui valor numérico.<br></td>
+		</tr>
+		</table>
+		
+		<br>
+		<span class="titulo2">Constantes</span><br>
+		<table border="0" style="width:500px;">
+		<tr>
+			<td class="td3"><b><i>Constante</i></b></td>
+			<td class="td2"><b><i>Descrição</i></b></td>
+		</tr>
+		<tr>
+			<td class="td4">null<br>NULL</td>
+			<td class="td1">Valor zero.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">true<br>TRUE</td>
+			<td class="td1">Valor um.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">false<br>FALSE</td>
+			<td class="td1">Valor zero.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">NL</td>
+			<td class="td1">Caractere nova linha.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">TB</td>
+			<td class="td1">Caractere tabulação horizontal.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">TV</td>
+			<td class="td1">Caractere tabulação vertical.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">CR</td>
+			<td class="td1">Caractere carriage return (\r).<br></td>
+		</tr>
+		</table>
+		
+		<br>
+		<span class="titulo2">Operadores matemáticos</span><br>
+		<table border="0" style="width:500px;">
+		<tr>
+			<td class="td3"><b><i>Operador</i></b></td>
+			<td class="td2"><b><i>Descrição</i></b></td>
+		</tr>
+		<tr>
+			<td class="td4">+</td>
+			<td class="td1">Soma valores.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">-</td>
+			<td class="td1">Subtrai valores.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">*</td>
+			<td class="td1">Multiplica valores.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">/</td>
+			<td class="td1">Divide valores.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">%</td>
+			<td class="td1">Resto de divisão.<br></td>
+		</tr>
+		</table>
+		
+		<br>
+		<span class="titulo2">Operadores para incremento e decremento</span><br>
+		<table border="0" style="width:500px;">
+		<tr>
+			<td class="td3"><b><i>Operador</i></b></td>
+			<td class="td2"><b><i>Descrição</i></b></td>
+		</tr>
+		<tr>
+			<td class="td4">++</td>
+			<td class="td1">Incrementa valor em um.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">--</td>
+			<td class="td1">Decrementa valor em um.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">+=</td>
+			<td class="td1">Soma valor determinada quantidade de vezes.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">-=</td>
+			<td class="td1">Subtrai valor determinada quantidade de vezes.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">*=</td>
+			<td class="td1">Multiplica valor determinada quantidade de vezes.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">/=</td>
+			<td class="td1">Divide valor determinada quantidade de vezes.<br></td>
+		</tr>
+		<tr>
+			<td class="td4" colspan="2">
+				<i style="font-size:13px;">
+					Quando o operador é utilizado antes da variável a mesma é incrementada<br>
+					ou decrementada antes de sua utilização.
+				</i>
+			</td>
+		</tr>
+		</table>
+		
+		<br>
+		<span class="titulo2">Operadores condicionais</span><br>
+		<table border="0" style="width:500px;">
+		<tr>
+			<td class="td3"><b><i>Operador</i></b></td>
+			<td class="td2"><b><i>Descrição</i></b></td>
+		</tr>
+		<tr>
+			<td class="td4">==</td>
+			<td class="td1">Verifica se valores da esquerda e direita são idênticos.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">&lt;</td>
+			<td class="td1">Verifica se valor da esquerda é menor que valor da direita.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">&gt;</td>
+			<td class="td1">Verifica se valor da esquerda é maior que valor da direita.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">&lt;=</td>
+			<td class="td1">Verifica se valor da esquerda é menor ou idêntico ao  valor da direita.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">&gt;=</td>
+			<td class="td1">Verifica se valor da esquerda é maior ou idêntico ao  valor da direita.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">!</td>
+			<td class="td1">Verifica se condição é falsa.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">!=</td>
+			<td class="td1">Verifica se valor da esquerda não é igual ao valor da direita.<br></td>
+		</tr>
+		</table>
+	</p>
+	<br>
 </div>
 </body>
 </html>
