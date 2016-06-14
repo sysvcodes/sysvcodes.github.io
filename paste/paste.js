@@ -84,7 +84,7 @@ $(document).ready(function(){
 					var s1 = line.split("||");
 					var p2 = s1[1].replace(/color:/g, "");
 					var p2 = p2.replace(/font-weight:/g, "");
-					finalSource += lineContent + s1[0] + "<font style='color:#bfbfbf;font-style:italic;'>//" + p2 +"</font>"+ "<br>";
+					finalSource += lineContent + s1[0] + "<font style='color:#bfbfbf;font-style:italic;'>//" + p2 +"</font>"+ "\n";
 				} else if (line.indexOf("\"") != -1) {
 					var s1 = line.split("\"");
 					var p2 = s1[1].replace(/color:/g, "");
@@ -101,9 +101,9 @@ $(document).ready(function(){
 							finalSource += s1[b];
 						}
 					}
-					finalSource += "<br>";
+					finalSource += "\n";
 				} else
-					finalSource += lineContent + splited[a] +"<br>";
+					finalSource += lineContent + splited[a] +"\n";
 				lineCounter++;
 			}
 		}
