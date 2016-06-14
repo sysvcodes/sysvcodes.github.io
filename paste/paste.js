@@ -59,11 +59,7 @@ $(document).ready(function(){
 		content = content.replace(/\tcontinue\t/g, "<font style='color:#00FFFF;font-weight:bold;'>continue </font>");
 		content = content.replace(/ continue\t/g, "<font style='color:#00FFFF;font-weight:bold;'> continue </font>");
 		content = content.replace(/ continue /g, "<font style='color:#00FFFF;font-weight:bold;'> continue </font>");
-		
-		// Processa comentários e strings.
 		content = content.replace(/\n/g, "\t\n");
-		//content = content.replace(/\n\n/g, "\r\n \t \r\n ");
-		//content = content.replace(/\r\n\r\n/g, "\r\n \t \r\n ");
 		
 		var splited = content.split(/\n/);
 		var finalSource = "";
@@ -73,15 +69,14 @@ $(document).ready(function(){
 				var line = splited[a];
 				var lineTemp = ""+ lineCounter +"";
 				
-				if (lineTemp.length == 1) {
+				if (lineTemp.length == 1) 
 					lineTemp = "&nbsp;&nbsp;0"+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
-				} else if (lineTemp.length == 2) {
+				else if (lineTemp.length == 2) 
 					lineTemp = "&nbsp;&nbsp;"+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
-				} else if (lineTemp.length == 3) {
+				else if (lineTemp.length == 3) 
 					lineTemp = "&nbsp;"+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
-				} else if (lineTemp.length == 4) {
+				else if (lineTemp.length == 4) 
 					lineTemp = ""+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
-				}
 				var lineContent = "<font style='color:gray;'>"+ lineTemp +"</font>";
 				
 				if (line.indexOf("||") != -1) {
@@ -112,6 +107,19 @@ $(document).ready(function(){
 				lineCounter++;
 			}
 		}
+		
+		var lineCounterB = lineCounter + 1;
+		lineTemp = ""+ lineCounterB +"";
+		if (lineTemp.length == 1) 
+			lineTemp = "&nbsp;&nbsp;0"+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
+		else if (lineTemp.length == 2) 
+			lineTemp = "&nbsp;&nbsp;"+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
+		else if (lineTemp.length == 3) 
+			lineTemp = "&nbsp;"+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
+		else if (lineTemp.length == 4) 
+			lineTemp = ""+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
+		lineContent = "<font style='color:gray;'>"+ lineTemp +"</font>";
+		finalSource += lineContent +"<br>";
 		
 		$("#content").html(finalSource);
 	});
