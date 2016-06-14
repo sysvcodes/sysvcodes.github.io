@@ -103,7 +103,7 @@ $(document).ready(function(){
 					}
 					finalSource += "<br>";
 				} */else
-					finalSource += lineContent + splited[a];
+					finalSource += lineContent + splited[a] +"<br>";
 				lineCounter++;
 			}
 		}
