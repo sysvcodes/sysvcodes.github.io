@@ -11,7 +11,7 @@ $(document).ready(function(){
 	$("#gobtn").on("click", function(){
 		window.location.href = "?f="+ $("#filename").val();
 	});
-	$("#filename").keypress(function(e){
+	$(document).keypress(function(e){
 		var tecla = (e.keyCode?e.keyCode:e.which);
 		if (tecla == 13){
 			window.location.href = "?f="+ $("#filename").val();
