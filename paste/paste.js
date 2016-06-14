@@ -98,7 +98,6 @@ $(document).ready(function(){
 					for (var b=0; b<s1.length; b++) {
 						if (b_flag == true) {
 							b_flag = false;
-							console.log(s1[b]);
 							finalSource += "<font style='color:#00FF00;'>\"" + s1[b] +"\"</font>";
 						} else if (b_flag == false) {
 							b_flag = true;
