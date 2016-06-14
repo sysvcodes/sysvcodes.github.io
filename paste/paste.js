@@ -130,7 +130,7 @@ $(document).ready(function(){
 									lineTempB = ""+ lineCounterB +"&nbsp;&nbsp;&nbsp;&nbsp;";
 								}
 								lineContent = "<font style='color:gray;'>"+ lineTempB +"</font>";
-								finalSource += "<br>"+ lineContent;
+								finalSource += lineContent;
 								lineCounter++;
 							}
 							// --
