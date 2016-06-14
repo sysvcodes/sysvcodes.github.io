@@ -105,7 +105,7 @@ $(document).ready(function(){
 							finalSource += s1[b];
 						}
 					}
-					finalSource += "<br>";
+					//finalSource += "<br>";
 				} else
 					finalSource += lineContent + splited[a] +"<br>";
 				lineCounter++;
