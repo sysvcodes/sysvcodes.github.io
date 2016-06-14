@@ -61,7 +61,7 @@ $(document).ready(function(){
 		content = content.replace(/ continue /g, "<font style='color:#00FFFF;font-weight:bold;'> continue </font>");
 		
 		// Processa comentários e strings.
-		content = content.replace(/\/n\/n/g, "<NLNL>");
+		content = content.replace(/\n\n/g, "\n<NLNL>");
 		
 		var splited = content.split(/\n/);
 		var finalSource = "";
