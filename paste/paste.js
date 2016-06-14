@@ -4,24 +4,36 @@
 */
 
 $(document).ready(function(){
-	
+
 	$("body").css("background-color", "#333232");
 	$("body").css("color", "#00ff80");
 	
+	$("#gobtn").on("click", function(){
+		window.location.href = "?f="+ $("#filename").val();
+	});
+	
 	var url = window.location.toString();
-	if (url.indexOf("?f=") == -1) {
-		alert("Invalid paste.");
+	if (url.indexOf("?f=") != -1) {
+		var splited = url.split("?f=");
+		var param = splited[1];
+		if (!(param[param.length-1] == 's' && param[param.length-2] == '.')) {
+			$("#content").css("visibility", "visible");
+			$("#filename").val("");
+			$("#filename").focus();
+			alert("Invalid paste.");
+			return false;
+		} else {
+			loadFile(param);
+		}
+	} else {
+		$("#content").css("visibility", "visible");
+		$("#filename").val("");
+		$("#filename").focus();
 		return false;
 	}
+});
 	
-	var splited = url.split("?f=");
-	var param = splited[1];
-	
-	if (!(param[param.length-1] == 's' && param[param.length-2] == '.')) {
-		alert("Invalid paste.");
-		return false;
-	}
-	
+function loadFile(param){
 	$.get(param, function(data){
 		var content = data;
 		
@@ -125,5 +137,6 @@ $(document).ready(function(){
 		document.title = "SPL - "+ lineTemp + " lines!";
 		
 		$("#content").html(finalSource);
+		$("#content").css("visibility", "visible");
 	});
-});
+};
