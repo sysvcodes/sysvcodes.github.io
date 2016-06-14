@@ -20,7 +20,9 @@ def entry () {  // entry point
 	n1 = 10, n2 = 20
 	n3 = 30
 	n3 = 40
-	s3 = "str 4"
+	s3 = "str 4" /* comentário de 
+	multiplas
+	linhas... */
 	str = "teste"
 	
 	retz = functionZero
@@ -156,4 +158,5 @@ def functionSeven
  	str = "functionSeven"
 	say str
  }
-// EOF
+ 
+/* EOF */
