@@ -39,6 +39,7 @@ def entry () {  // entry point
 	var1 = 20
 	var2 = 10
 	vret = functionSix var1, var2
+	
 	if (var1 == var2) 					// *** Condições.
 		say "Iguais!\n" 
 	elif var1 >= var2					// else if
