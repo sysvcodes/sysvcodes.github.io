@@ -133,13 +133,13 @@ $(document).ready(function(){
 						var lineCounterB = lineCounter + 1;
 						var lineTempB = ""+ lineCounterB +"";
 						if (lineTempB.length == 1) {
-							lineTempB = "&nbsp;&nbsp;0"+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
+							lineTempB = "&nbsp;&nbsp;0"+ lineCounterB +"&nbsp;&nbsp;&nbsp;&nbsp;";
 						} else if (lineTempB.length == 2) {
-							lineTempB = "&nbsp;&nbsp;"+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
+							lineTempB = "&nbsp;&nbsp;"+ lineCounterB +"&nbsp;&nbsp;&nbsp;&nbsp;";
 						} else if (lineTempB.length == 3) {
-							lineTempB = "&nbsp;"+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
+							lineTempB = "&nbsp;"+ lineCounterB +"&nbsp;&nbsp;&nbsp;&nbsp;";
 						} else if (lineTempB.length == 4) {
-							lineTempB = ""+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
+							lineTempB = ""+ lineCounterB +"&nbsp;&nbsp;&nbsp;&nbsp;";
 						}
 						lineContent = "<font style='color:gray;'>"+ lineTempB +"</font>";
 						finalSource += "<br>"+ lineContent +"<br>";
