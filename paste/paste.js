@@ -102,36 +102,23 @@ $(document).ready(function(){
 							console.log(s1[b]);
 							finalSource += "<font style='color:#00FF00;'>\"" + s1[b] +"\"</font>";
 							
-							//finalSource = finalSource.replace(/<NLNL>/g, "<br>");
-							// --
-							// var lineCounterB = lineCounter + 1;
-							// var lineTempB = ""+ lineCounterB +"";
-							// if (lineTempB.length == 1) {
-								// lineTempB = "&nbsp;&nbsp;0"+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
-							// } else if (lineTempB.length == 2) {
-								// lineTempB = "&nbsp;&nbsp;"+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
-							// } else if (lineTempB.length == 3) {
-								// lineTempB = "&nbsp;"+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
-							// } else if (lineTempB.length == 4) {
-								// lineTempB = ""+ lineCounter +"&nbsp;&nbsp;&nbsp;&nbsp;";
-							// }
-							// lineContent = "<font style='color:gray;'>"+ lineTempB +"</font>";
 							if (finalSource.indexOf("<NLNL>") != -1) {
 								// c_flag = true;
-								var lineCounterB = lineCounter + 1;
-								var lineTempB = ""+ lineCounterB +"";
-								if (lineTempB.length == 1) {
-									lineTempB = "&nbsp;&nbsp;0"+ lineCounterB +"&nbsp;&nbsp;&nbsp;&nbsp;";
-								} else if (lineTempB.length == 2) {
-									lineTempB = "&nbsp;&nbsp;"+ lineCounterB +"&nbsp;&nbsp;&nbsp;&nbsp;";
-								} else if (lineTempB.length == 3) {
-									lineTempB = "&nbsp;"+ lineCounterB +"&nbsp;&nbsp;&nbsp;&nbsp;";
-								} else if (lineTempB.length == 4) {
-									lineTempB = ""+ lineCounterB +"&nbsp;&nbsp;&nbsp;&nbsp;";
-								}
-								lineContent = "<font style='color:gray;'>"+ lineTempB +"</font>";
-								finalSource += lineContent;
-								lineCounter++;
+								// var lineCounterB = lineCounter + 1;
+								// var lineTempB = ""+ lineCounterB +"";
+								// if (lineTempB.length == 1) {
+									// lineTempB = "&nbsp;&nbsp;0"+ lineCounterB +"&nbsp;&nbsp;&nbsp;&nbsp;";
+								// } else if (lineTempB.length == 2) {
+									// lineTempB = "&nbsp;&nbsp;"+ lineCounterB +"&nbsp;&nbsp;&nbsp;&nbsp;";
+								// } else if (lineTempB.length == 3) {
+									// lineTempB = "&nbsp;"+ lineCounterB +"&nbsp;&nbsp;&nbsp;&nbsp;";
+								// } else if (lineTempB.length == 4) {
+									// lineTempB = ""+ lineCounterB +"&nbsp;&nbsp;&nbsp;&nbsp;";
+								// }
+								// lineContent = "<font style='color:gray;'>"+ lineTempB +"</font>";
+								// finalSource += lineContent;
+								// lineCounter++;
+								console.log(finalSource);
 							}
 							// --
 							
@@ -140,25 +127,7 @@ $(document).ready(function(){
 							finalSource += s1[b];
 						}
 					}
-					// if (c_flag == false) {
-						finalSource += "<br>";
-					// } else {
-						// c_flag = false;
-						// var lineCounterB = lineCounter + 1;
-						// var lineTempB = ""+ lineCounterB +"";
-						// if (lineTempB.length == 1) {
-							// lineTempB = "&nbsp;&nbsp;0"+ lineCounterB +"&nbsp;&nbsp;&nbsp;&nbsp;";
-						// } else if (lineTempB.length == 2) {
-							// lineTempB = "&nbsp;&nbsp;"+ lineCounterB +"&nbsp;&nbsp;&nbsp;&nbsp;";
-						// } else if (lineTempB.length == 3) {
-							// lineTempB = "&nbsp;"+ lineCounterB +"&nbsp;&nbsp;&nbsp;&nbsp;";
-						// } else if (lineTempB.length == 4) {
-							// lineTempB = ""+ lineCounterB +"&nbsp;&nbsp;&nbsp;&nbsp;";
-						// }
-						// lineContent = "<font style='color:gray;'>"+ lineTempB +"</font>";
-						// finalSource += "<br>"+ lineContent +"<br>";
-						// lineCounter++;
-					// }
+					finalSource += "<br>";
 				} else
 					finalSource += lineContent + splited[a] +"<br>";
 				lineCounter++;
