@@ -9,12 +9,12 @@ $(document).ready(function(){
 	$("body").css("color", "#00ff80");
 	
 	var url = window.location.toString();
-	if (url.indexOf("?name=") == -1) {
+	if (url.indexOf("?f=") == -1) {
 		alert("Invalid paste.");
 		return false;
 	}
 	
-	var splited = url.split("?name=");
+	var splited = url.split("?f=");
 	var param = splited[1];
 	
 	if (!(param[param.length-1] == 's' && param[param.length-2] == '.')) {
