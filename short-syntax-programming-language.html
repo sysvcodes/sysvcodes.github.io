@@ -54,7 +54,7 @@
    \ `\____\ \_\ \_\ \____/\ \_\  \ \__\    \ `\____\/`____ \ \_\ \_\ \__\ \__/.\_\/\_/\_\
     \/_____/\/_/\/_/\/___/  \/_/   \/__/     \/_____/`/___/> \/_/\/_/\/__/\/__/\/_/\//\/_/
                                                         /\___/          
-                                 Programming Language   \/__/   
+                   Programming Language - Version: 1.0  \/__/   
  </i>
 </pre>
 </div>
@@ -64,12 +64,9 @@
 		<li><a href="#descricao">Descrição</a></li>
 		<li><a href="#caracteristicas">Características</a></li>
 		<li><a href="#variaveis">Variáveis</a></li>
-		<li><a href="#biblioteca">Bibliotecas</a></li>
 		<li><a href="#funcoes">Funções</a></li>
 		<li><a href="#ponto-de-inicializacao">Ponto de inicialização</a></li>
 		<li><a href="#controle-de-fluxo">Controle de fluxo</a></li>
-		<li><a href="#acoplamento-de-codigo-asm">Acoplamento de código ASM</a></li>
-		<li><a href="#opcoes-linker">Opções para linker</a></li>
 		<li><a href="#chamadas-ao-sistema">
 			Chamadas a funções da API do sistema</a></li>
 		<li><a href="#operadores">
@@ -98,39 +95,49 @@
 	<span class="titulo1" id="variaveis">
 		Variáveis</span>
 	<p class="paragrafo1">
-		A memória é gerenciada manualmente pelo programador, contudo quando é definida<br>
-		alguma string ou valor numérico a variável, a alocação da memória e a atribuição<br>
-		dos dados é feita internamente pelo compilador.
+		As variáveis devem sempre, ao ser declaradas, também inicializadas e <br>
+		passando como atribuição a função <i>alloc</i> e o respectivo valor equivalente<br>
+		ao tamanho que será re-alocado. Segue abaixo um exemplo.
 		<br><br>
-		// Definição de múltiplas variáveis na mesma linha.<br>
-		num1 = 0, str1 = null 
+		// Definição de variável, aceita qualquer tipo de dado.<br>
+		variavel = alloc(256) 
 		&nbsp;&nbsp;&nbsp;&nbsp;
-		// Internamente é feito a alocação de espaço na<br>
+		&nbsp;// Internamente é feito a alocação de espaço na<br>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		&nbsp;&nbsp;
 		// memória e em seguida é atribuído o valor zero a variável.<br><br>
 		
-		// Utilização...<br>
-		variavel = "String here!"<br>
-		variavel = 100<br>
-		variavel = alloc 256 /* Armazena 256 bytes. */<br>
-		variavel = funcN
-	</p>
-	<br>
-	<span class="titulo1" id="biblioteca">
-		Bibliotecas.</span>
-	<p class="paragrafo1">
-		É possível utilizar tanto a biblioteca padrão como bibliotecas externas.<br>
-		O nome da biblioteca é o mesmo nome do arquivo sem a extensão. Ao<br>
-		referenciar o nome da mesma o compilador procura o arquivo, se não <br>
-		existir procura na biblioteca padrão. Para definição utiliza-se o comando<br>
-		<i>req</i>.<br><br>
+		// Outros exemplos...<br>
+		variavel = null&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Zera variável, seta todos os dados para 0 (zero)<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		e libera espaço na memória. */<br>
+		variavel = "String here!"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Simples C string. */<br>
+		variavel = 100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Valor inteiro. */<br>
+		variavel = alloc(256)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Armazena 256 bytes. */<br>
+		variavel = funcN()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Armazena retorno da função na variável. */<br><br>
 		
-		req io // Utilização da biblioteca padrão de entrada e saída.<br>
-		req minha-lib // Utiliza biblioteca própria.<br>
-		req dir/lib-A // Utiliza biblioteca própria armazenada em diretório.<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		/* Múltiplas variáveis em uma única linha. */<br>
+		variavelA = 10, variavelB = 0, variavelC = "String here!", variavelD = alloc(256)<br>
+		variavelE = null, variavelF = funcN(), variavelG = 0<br><br>
+		
+		Ao inicializar uma variável com uma cadeia de caractere ou algum valor numérico,<br> é 
+		calculado o tamanho necessário, feita a alocação e copiado os dados para memória.<br><br>
+		
+		Ao inicializar uma variável com o valor null, todo o espaço alocado
+		(se alocado),<br> é preenchido com 0 (zero), em seguida re-alocado para o
+		valor 1 (um).<br><br>
+		
+		Quando a variável recebe como atribuição a função <i>alloc</i>, a variável
+		em questão <br>terá seu tamanho de armazenamento re-alocado de acordo com o
+		valor passado <br>como parâmetro para função.<br><br>
+		
+		Quando a variável recebe qualquer outra função como atribuição de valor; seu <br>retorno é salvo na variável.<br><br>
+		
+		Para declarar múltiplas variáveis em uma única linha, basta separa-las por vírgula.<br>
+		
 	</p>
 	<br>
 	<span class="titulo1" id="funcoes">
@@ -287,36 +294,12 @@
 		</table>
 	</p>
 	<br>
-	<span class="titulo1" id="acoplamento-de-codigo-asm">
-		Acoplamento de código ASM.</span>
-	<p class="paragrafo1">
-		Para inserção de código ASM utiliza-se o comando <i>asm</i>.
-		É aceito apenas <br>sintaxe Intel. O assembler utilizado é o NASM e para linker o programa ld.
-		<br>
-		<br>
-		asm {<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;mov [ebp+28], 10<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;mov [ebp+32], 20<br>
-		}<br>
-	</p>
-	<br>
-	<span class="titulo1" id="opcoes-linker">
-		Opções para linker.</span>
-	<p class="paragrafo1">
-		Ao utilizar funções da API do sistema é necessário especificar o nome da 
-		biblioteca<br> que a função pertence.
-		<br>
-		<br>
-		linker [ lib, kernel32 ]<br>
-		linker [ lib, user32 ]<br>
-	</p>
-	<br>
 	<span class="titulo1" id="chamadas-ao-sistema">
 		Chamadas a funções da API do sistema.</span>
 	<p class="paragrafo1">
-		Utiliza-se como na linguagem C, especificando o nome da função e seus<br>
+		Utiliza-se como na linguagem C, especificando o nome da função e seus
 		parâmetros.<br><br>
-		MessageBoxA NULL, "Minha mensagem!", "Meu titulo!", MB_OK<br>
+		MessageBoxA(NULL, "Minha mensagem!", "Meu titulo!", MB_OK)<br>
 	</p>
 	<br>
 	<span class="titulo1" id="operadores">
