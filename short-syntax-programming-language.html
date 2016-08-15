@@ -62,42 +62,49 @@
 	<p class="paragrafo1">
 		<ul class="ul1">
 		<li><a href="#descricao">Descrição</a></li>
-		<li><a href="#caracteristicas">Características</a></li>
 		<li><a href="#variaveis">Variáveis</a></li>
 		<li><a href="#funcoes">Funções</a></li>
 		<li><a href="#ponto-de-inicializacao">Ponto de inicialização</a></li>
 		<li><a href="#controle-de-fluxo">Controle de fluxo</a></li>
-		<li><a href="#chamadas-ao-sistema">
-			Chamadas a funções da API do sistema</a></li>
-		<li><a href="#operadores">
-			Operadores, constantes e caracteres especiais</a></li>
+		<li><a href="#chamadas-ao-sistema">Chamada a função</a></li>
+		<li><a href="#operadores">Operadores, constantes e caracteres especiais</a></li>
 		</ul>
 	</p>
 	<span class="titulo1" id="descricao">Descrição</span>
 	<p class="paragrafo1">
-		Não foram muitos motivos que levaram a criação da linguagem, porém dentre<br>
-		eles esta a possibilidade de ter certo controle sobre a sintaxe, podendo<br>
-		desenvolver funcionalidades específicas.
-		<br><br>
-		Este texto tem como intuito esclarecer algumas questões a respeito da<br>
-		linguagem, como também servir de referência para quem faz uso da mesma. 
-	</p>
-	<br>
-	<span class="titulo1" id="caracteristicas">Características</span>
-	<p class="paragrafo1">
+		<i>Short Syntax</i> é compacta: suas características foram simplificadas ao máximo, <br>
+		deixando a mesma com uma sintaxe pequena e resumida.<br><br>
+		
+		É simples: pois é estruturada.<br><br>
+		
+		É portável: é possível a geração de código para plataformas diferentes.<br>
+		Segue abaixo as linguagens utilizadas e suas respectivas plataformas de destino:<br>
+		
 		<ul>
-		<li>Compilada</li>
-		<li>Case-sensitive</li>
-		<li>Estruturada</li>
+		<li><b>PHP</b> - Desenvolvimento Web.</li>
+		<li><b>Java</b> - Desenvolvimento mobile.</li>
+		<li><b>Perl, C, ASM</b> - Desenvolvimento desktop e programação de baixo nível</li>
+		</ul>
+	</p>
+	<p class="paragrafo1">
+		É flexível e poderosa: ao gerar código nativo para outras linguagens, a linguagem traz <br>
+		consigo mais poder e flexibilidade, permitindo o uso de características das linguagens <br>de
+		destino dentro da sintaxe da <i>Short Syntax</i>. Podendo ser vista também como um <br>
+		adicional para outras linguagens.<br><br>
+		
+		Outras características:<br>
+		<ul>
+		<li><i>Compilada</i></li>
+		<li><i>Case-sensitive</i></li>
+		<li><i>Estruturada</i></li>
 		</ul>
 	</p>
 	<br>
 	<span class="titulo1" id="variaveis">
 		Variáveis</span>
 	<p class="paragrafo1">
-		As variáveis devem sempre, ao ser declaradas, também inicializadas e <br>
-		passando como atribuição a função <i>alloc</i> e o respectivo valor equivalente<br>
-		ao tamanho que será re-alocado. Segue abaixo um exemplo.
+		As variáveis devem sempre, ao ser declaradas, também inicializadas com algum valor. <br>
+		Segue abaixo alguns exemplos.
 		<br><br>
 		// Definição de variável, aceita qualquer tipo de dado.<br>
 		variavel = alloc(256) 
@@ -115,10 +122,10 @@
 		e libera espaço na memória. */<br>
 		variavel = "String here!"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Simples C string. */<br>
 		variavel = 100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Valor inteiro. */<br>
-		variavel = alloc(256)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Armazena 256 bytes. */<br>
+		variavel = alloc(256)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Armazena 256 bytes na memória. */<br>
 		variavel = funcN()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Armazena retorno da função na variável. */<br><br>
 		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		
 		/* Múltiplas variáveis em uma única linha. */<br>
 		variavelA = 10, variavelB = 0, variavelC = "String here!", variavelD = alloc(256)<br>
 		variavelE = null, variavelF = funcN(), variavelG = 0<br><br>
@@ -126,15 +133,15 @@
 		Ao inicializar uma variável com uma cadeia de caractere ou algum valor numérico,<br> é 
 		calculado o tamanho necessário, feita a alocação e copiado os dados para memória.<br><br>
 		
-		Ao inicializar uma variável com o valor null, todo o espaço alocado
-		(se alocado),<br> é preenchido com 0 (zero), em seguida re-alocado para o
-		valor 1 (um).<br><br>
+		Ao inicializar ou atribuir a uma variável com o valor null, é alocado (ou re-alocado)<br>
+		apenas o tamanho de seu tipo(ou o tamanho necessário) e lhe atribuido o valor 0.<br><br>
 		
 		Quando a variável recebe como atribuição a função <i>alloc</i>, a variável
 		em questão <br>terá seu tamanho de armazenamento re-alocado de acordo com o
 		valor passado <br>como parâmetro para função.<br><br>
 		
-		Quando a variável recebe qualquer outra função como atribuição de valor; seu <br>retorno é salvo na variável.<br><br>
+		Quando a variável recebe qualquer outra função como atribuição de valor; seu <br>
+		valor de retorno é armazenado na variável.<br><br>
 		
 		Para declarar múltiplas variáveis em uma única linha, basta separa-las por vírgula.<br>
 		
@@ -143,7 +150,7 @@
 	<span class="titulo1" id="funcoes">
 		Funções</span>
 	<p class="paragrafo1">
-		Para declaração de funções usamos o comando <i>def</i> e todo código entre <br>as chaves { e } é parte da função.<br><br>
+		Para declaração de funções usamos o comando <i>def</i> e todo código entre as<br> chaves { e } é parte da mesma.<br><br>
 	
 		// Exemplo 1<br>
 		def functionZero{/* Code here... */}<br><br>
@@ -188,8 +195,8 @@
 	<span class="titulo1" id="ponto-de-inicializacao">
 		Ponto de inicialização.</span>
 	<p class="paragrafo1">
-		Como na linguagem C, é necessário definir o ponto de inicialização<br>
-		da aplicação, no caso utilizando a função <i>entry</i>.<br><br>
+		Como na linguagem C, é necessário definir o ponto de inicialização
+		da aplicação, no<br> caso utilizando a função <i>entry</i>.<br><br>
 		
 		def entry {<br>
 			&nbsp;&nbsp;&nbsp;&nbsp;
@@ -239,29 +246,12 @@
 				// code here!<br>
 				}<br><br>
 				
-				Outra característica é a utilização de sua variável interna. 
-				Internamente ao utilizar o comando for é declarado uma variável 
-				inicializada em 0 e incrementada em 1 a cada execução do bloco de 
-				código. Para acessar a mesma basta utilizar o caractere # (jogo da velha).<br><br>
-				
-				// Imprime números de 0 a 9 utilizando a <br>
-				// variável interna do comando for.<br>
-				for {<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;
-					// Code here...<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;
-					if (# == 9)<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;
-					&nbsp;&nbsp;&nbsp;&nbsp;
-						break;<br>
-				}<br><br>
-				
-				Outros exemplos...<br>Imprimir números de 0 a 9...<br><br>
+				// Imprimir números de 0 a 9...<br>
 				for (a=0; a<=9; a++) <br>
 					&nbsp;&nbsp;&nbsp;&nbsp;
 					// Code here...<br>
 				<br>
-				Utilização de múltiplas variáveis.<br><br>
+				// Utilização de múltiplas variáveis.<br>
 				for (a=0,b=1,c=2; a<=9; a++,b+=2,c+=3) <br>
 					&nbsp;&nbsp;&nbsp;&nbsp;
 					// Code here...<br>
@@ -277,28 +267,16 @@
 		<tr>
 			<td class="td4">continue</td>
 			<td class="td1">
-				Pula para início do comando for.<br><br>
-			</td>
-		</tr>
-		<tr>
-			<td class="td4">do</td>
-			<td class="td1">
-				Quase idêntico ao comando for, com a diferença onde o bloco de código é executado ao menos uma vez antes de verificar o bloco de condições do comando.<br><br>
-				
-				do {<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;
-					// Code here!<br>
-				} (CONDIÇÃO);<br>
+				Continua execução do comando for, indo para ocorrência seguinte.<br><br>
 			</td>
 		</tr>
 		</table>
 	</p>
 	<br>
 	<span class="titulo1" id="chamadas-ao-sistema">
-		Chamadas a funções da API do sistema.</span>
+		Chamadas a funções.</span>
 	<p class="paragrafo1">
-		Utiliza-se como na linguagem C, especificando o nome da função e seus
-		parâmetros.<br><br>
+		Especifica-se o nome da função e seus parâmetros.<br><br>
 		MessageBoxA(NULL, "Minha mensagem!", "Meu titulo!", MB_OK)<br>
 	</p>
 	<br>
@@ -324,8 +302,12 @@
 			<td class="td1">Comentário de múltiplas linhas, com início em /* e término em */.<br></td>
 		</tr>
 		<tr>
-			<td class="td4"><i>new-line</i>, ;</td>
-			<td class="td1">Nova linha e ponto e vírgula, finalização de bloco de comando.<br></td>
+			<td class="td4"><i>new-line</i></td>
+			<td class="td1"><i>Nova linha</i>, finalização de bloco de comando.<br></td>
+		</tr>
+		<tr>
+			<td class="td4">,&nbsp;(<i>vírgula</i>)</td>
+			<td class="td1"><i>Vírgula</i>, finalização de definição de variável (separação de definição de múltiplas variáveis).<br></td>
 		</tr>
 		<tr>
 			<td class="td4">{, }</td>
@@ -333,11 +315,7 @@
 		</tr>
 		<tr>
 			<td class="td4">"&nbsp;(aspas&nbsp;dupla)</td>
-			<td class="td1">String, define uma sequência de caracteres, com início na primeira ocorrência encontrada e término na seguinte. Para inserir um aspas dupla dentro da string basta fazer uso da barra invertida antes do caractere (\").<br></td>
-		</tr>
-		<tr>
-			<td class="td4">#</td>
-			<td class="td1">Acesso a variável interna do comando <i>for</i> e <i>do</i>. Possui valor numérico.<br></td>
+			<td class="td1">String, define uma sequência de caracteres, com início na primeira ocorrência encontrada e término na seguinte.<br></td>
 		</tr>
 		</table>
 		
