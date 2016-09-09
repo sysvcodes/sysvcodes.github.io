@@ -1,7 +1,7 @@
 <html>
 <head>
 	<meta charset="utf-8"/>
-	<title>Short Syntax referência</title>
+	<title>Documentação</title>
 	<style>
 		body {
 			padding: 10px;
@@ -46,16 +46,15 @@
 <body>
 <div class="topo">
 <pre>
- ____    __                     __        ____                    __                      
-/\  _`\ /\ \                   /\ \__    /\  _`\                 /\ \__                By SysV          
-\ \,\L\_\ \ \___     ___   _ __\ \ ,_\   \ \,\L\_\  __  __    ___\ \ ,_\    __     __  _  
- \/_\__ \\ \  _ `\  / __`\/\`'__\ \ \/    \/_\__ \ /\ \/\ \ /' _ `\ \ \/  /'__`\  /\ \/'\ 
-   /\ \L\ \ \ \ \ \/\ \L\ \ \ \/ \ \ \_     /\ \L\ \ \ \_\ \/\ \/\ \ \ \_/\ \L\.\_\/>  &gt;/ 
-   \ `\____\ \_\ \_\ \____/\ \_\  \ \__\    \ `\____\/`____ \ \_\ \_\ \__\ \__/.\_\/\_/\_\
-    \/_____/\/_/\/_/\/___/  \/_/   \/__/     \/_____/`/___/> \/_/\/_/\/__/\/__/\/_/\//\/_/
-                                                        /\___/          
-                         Code Converter - Version: 1.0  \/__/   
- </i>
+   __  __  ____    __        
+  /\ \/\ \/\  _`\ /\ \       
+  \ \ \ \ \ \ \L\ \ \ \      
+   \ \ \ \ \ \ ,__/\ \ \  __ 
+    \ \ \_\ \ \ \/  \ \ \L\ \
+     \ \_____\ \_\   \ \____/
+      \/_____/\/_/    \/___/ 
+                             
+ Underground Programming Language
 </pre>
 </div>
 <div class="conteudo">
@@ -67,32 +66,25 @@
 		<li><a href="#ponto-de-inicializacao">Ponto de inicialização</a></li>
 		<li><a href="#controle-de-fluxo">Controle de fluxo</a></li>
 		<li><a href="#chamadas-ao-sistema">Chamada a função</a></li>
-		<li><a href="#operadores">Operadores, constantes e determinados caracteres</a></li>
+		<li><a href="#operadores">Constantes, operadores e outros</a></li>
 		</ul>
 	</p>
 	<span class="titulo1" id="descricao">Descrição</span>
 	<p class="paragrafo1">
-		<i>Short Syntax</i> é um conversor de código, um código responsável por
-		ler algum<br> código escrito utilizando a sintaxe descrita aqui neste texto e gerar outro código <br>
-		equivalente de saída em alguma linguagem suportada pelo mesmo. 
+		<i>UPL</i> tem como objetivo ser simples, compacta e portável. Ou seja, ser pequena,  
+		uma sintaxe resumida e com possibilidade para gerar códigos para outras linguagens. Contendo 
+		apenas um <i>núcleo</i> composto por comandos de controle de fluxo, funções e a
+		possibilidade de executar alguma função da API do sistema.
 		<br><br>
-		É compacta: suas características foram simplificadas ao máximo, <br>
-		deixando a mesma com uma sintaxe pequena e resumida. É estruturada. 
-		É portável: é <br>possível a geração de código para plataformas diferentes.
-		Segue abaixo as linguagens <br>utilizadas e suas respectivas plataformas de destino:<br>
+		
+		Gera código para as linguagens:<br>
 		
 		<ul>
+		<li><b>C</b> - Desenvolvimento de aplicações em geral.</li>
 		<li><b>PHP</b> - Desenvolvimento Web.</li>
-		<li><b>Java</b> - Desenvolvimento mobile.</li>
-		<li><b>Perl, C, ASM</b> - Desenvolvimento desktop e programação de baixo nível</li>
 		</ul>
 	</p>
 	<p class="paragrafo1">
-		É flexível e poderosa: ao gerar código nativo para outras linguagens, traz 
-		consigo mais <br>poder e flexibilidade, permitindo o uso de características das linguagens de
-		destino. <br> Podendo ser vista como um 
-		adicional para outras linguagens.<br><br>
-		
 		Outras características:<br>
 		<ul>
 		<li><i>Case-sensitive</i></li>
@@ -101,139 +93,192 @@
 	</p>
 	<br>
 	<span class="titulo1" id="variaveis">
-		Variáveis</span>
+		Variáveis e comentários</span>
 	<p class="paragrafo1">
-		As variáveis devem sempre, ao ser declaradas, também inicializadas com algum valor. <br>
-		Segue abaixo alguns exemplos.
-		<br><br>
-		// Definição de variável, aceita qualquer tipo de dado.<br>
-		variavel = alloc(256) 
-		&nbsp;&nbsp;&nbsp;&nbsp;
-		&nbsp;// Internamente é feito a alocação de espaço na<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		&nbsp;&nbsp;
-		// memória e em seguida é atribuído o valor zero a variável.<br><br>
+		// Isso é um comentário.<br>
+		/* Isso também é um comentário. */<br>
+		<br>
 		
-		// Outros exemplos...<br>
-		variavel = null&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Zera variável, seta todos os dados para 0 (zero)<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		e libera espaço na memória. */<br>
+		// Definições simples.
+		<br>
 		variavel = "String here!"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Simples C string. */<br>
 		variavel = 100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Valor inteiro. */<br>
 		variavel = alloc(256)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Armazena 256 bytes na memória. */<br>
 		variavel = funcN()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Armazena retorno da função na variável. */<br><br>
+			
+		// Definições com uso de constantes e outras variáveis.<br>
+		variavel = null&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Zera variável, seta todos os dados para 0 (zero)<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		e libera espaço na memória. */<br>
+		variavel1 = variavel2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+		
+		// Definições com chamadas a funções.<br>
+		variavel = alloc(256) 
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;// Gera código fazendo chamada a realloc<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;
+		// passando como parâmetro o tamanho especificado.<br><br>
+		
+	
+		// Definições de array estático.<br>
+		variavel = int [100] // Array unidimensional do tipo int.<br>
+		variavel = char [3][3] // Array bidimensional do tipo char.<br>
+		variavel = char [4][4][4] // Array tridimensional do tipo char.<br>
+		<br>
+		
+		// Definições de array dinâmico.<br>
+		variavel = int [] // Array unidimensional do tipo int.<br>
+		variavel = char [][] // Array bidimensional do tipo char.<br>
+		variavel = char [][][] // Array tridimensional do tipo char.<br>
+		<br>
 		
 		
 		/* Múltiplas variáveis em uma única linha. */<br>
-		variavelA = 10, variavelB = 0, variavelC = "String here!", variavelD = alloc(256)<br>
-		variavelE = null, variavelF = funcN(), variavelG = 0<br><br>
+		variavelA = 10, variavelB = 0, variavelC = "String here!", variavelD = alloc(256)
+		variavelE = null, variavelF = funcN(), var = int [3][4][5], variavelG = 0<br><br>
 		
-		Ao inicializar uma variável com uma cadeia de caractere ou algum valor numérico,<br> é 
-		calculado o tamanho necessário, feita a alocação e copiado os dados para memória.<br><br>
-		
-		Ao inicializar ou atribuir a uma variável com o valor null, é alocado (ou re-alocado)<br>
-		apenas o tamanho de seu tipo(ou o tamanho necessário) e lhe atribuido o valor 0.<br><br>
-		
-		Quando a variável recebe como atribuição a função <i>alloc</i>, a variável
-		em questão <br>terá seu tamanho de armazenamento re-alocado de acordo com o
-		valor passado <br>como parâmetro para função.<br><br>
-		
-		Quando a variável recebe qualquer outra função como atribuição de valor; seu <br>
-		valor de retorno é armazenado na variável.<br><br>
-		
-		Para declarar múltiplas variáveis em uma única linha, basta separa-las por vírgula.<br>
+		// Estruturas concatenadas.<br>
+		variavel = struct [<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;itemA = int [], itemB = char [][], itemC = "String 1", <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;itemD = 100, itemE = alloc(256), itemF = funcN(), itemG = funcZ (10, 20, "N")<br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;itemH = struct [<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;itemA = 100, itemB = char [], itemC = "String 2", <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;itemD = 100, itemE = alloc(256), itemF = funcN(), itemG = funcZ (10, 20, "N")<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+		]<br>
 		
 	</p>
 	<br>
 	<span class="titulo1" id="funcoes">
-		Funções</span>
+		Funções e módulos</span>
 	<p class="paragrafo1">
-		Para declaração de funções usamos o comando <i>def</i> e todo código entre as<br> chaves { e } é parte da mesma.<br><br>
+		Para declaração de funções usamos o comando <i>def</i> e todo código entre as chaves { e } é parte da mesma.
+		E para declaração de módulos usamos o comando <i>mod</i> no início do arquivo de código, onde o mesmo possui funcionamento igual ao comando <i>include</i> da linguagem C.
+		<br>
+		<br>
 	
-		// Exemplo 1<br>
-		def functionZero{/* Code here... */}<br><br>
+		/* Arquivo de exemplo (exemplo.upl). */<br><br>
 		
-		// Exemplo 2<br>
-		def functionOne <br>
+		mod pacote // Define nome do arquivo sem extensão (Ex: para 'pacote.upl' define-se 'pacote'). <br>
+		mod pacoteA, pacoteB // Definição de múltiplos pacotes separados por vírgula. <br><br>
+		
+		// Core do módulo.<br>
+		// Definição como <i>public</i>, onde a função pode ser acessada por outros módulos.<br>
+		public functionCore{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;obj = pacoteCore(), say "{obj}\n" // Separação de comandos com vírgula, execução de função do módulo 'pacote' e exibição dos dados.<br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;functionZero() // Chamada simples.<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;variavel = functionZero() // Chamada com retorno para variável.<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;variavel = functionTwo(10, 20) // Chamada com passagem de parâmetros.<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;variavel1 = functionTwo(10, 20), variavel2 = functionThree(10, 20, "N") // Chamadas separadas por vírgula.<br>
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;ret true<br>
+		}<br><br>
+		
+		// Definição como <i>static</i>, onde a função pode ser acessada somente pelo próprio módulo.<br>
+		static functionZero{/* Code here... */}<br><br>
+		
+		// Outros exemplos...<br><br>
+		static functionOne <br>
 		{ /* Code here... */ }<br><br>
 
-		// Exemplo 3<br>
-		def functionTwo (valor1, valor2) {<br>
+		static functionTwo (valor1, valor2) {<br>
 			&nbsp;&nbsp;&nbsp;&nbsp;
 			ret valor1 + valor2<br>
 		}<br><br>
 
-		// Exemplo 4<br>
-		def<br>
+		static<br>
 		functionThree <br>
 		(param1, param2, paramN) {<br>
 			&nbsp;&nbsp;&nbsp;&nbsp;
 			// Code here...<br>
 		}<br><br>
 
-		// Exemplo 5<br>
-		def functionFour<br>
+		static functionFour<br>
 		(valora, <br>
 		valorb)<br>
 		{<br>
 			&nbsp;&nbsp;&nbsp;&nbsp;
 			// Code here...<br>
 		}<br><br>
-		Para retornar dados utiliza-se o comando <i>ret</i>.<br><br>
+		
+		/* Para retornar dados utiliza-se o comando <i>ret</i>. */<br><br>
 		
 		// Passagem de parâmetros para função.<br>
-		def functionHere (valor1, valor2) {<br>
+		static functionHere (valor1, valor2) {<br>
 			&nbsp;&nbsp;&nbsp;&nbsp;
 			valor3 = valor1 + valor2<br>
 			&nbsp;&nbsp;&nbsp;&nbsp;
 			ret valor3 // Retorna resultado da soma.<br>
-		}<br>
+		}<br><br>
+		
+		/* Fim do arquivo de exemplo (exemplo.upl). */
+		<br>
 	</p>
 	<br>
 	<span class="titulo1" id="ponto-de-inicializacao">
-		Ponto de inicialização.</span>
+		Ponto de inicialização</span>
 	<p class="paragrafo1">
 		Como na linguagem C, é necessário definir o ponto de inicialização
 		da aplicação, no<br> caso utilizando a função <i>entry</i>.<br><br>
 		
-		def entry {<br>
+		mod exemplo<br><br>
+		entry {<br>
 			&nbsp;&nbsp;&nbsp;&nbsp;
 			// Code here...<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;value = functionCore()<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;// Code here...<br>
 		}<br>
 	</p>
 	<br>
 	<span class="titulo1" id="controle-de-fluxo">
-		Controle de fluxo</span>
+		Comandos de controle de fluxo</span>
 	<p class="paragrafo1">
-		<table border="0" style="width:500px;">
+		<table border="0" style="width:100%;">
 		<tr>
 			<td class="td3"><b><i>Comando</i></b></td>
 			<td class="td2"><b><i>Descrição</i></b></td>
 		</tr>
 		<tr>
 			<td class="td4">if</td>
-			<td class="td1">Se condição for verdadeira executa bloco de código. <br><br><i>if</i> (CONDIÇÃO) <i>{</i><br>
+			<td class="td1">Se condição for verdadeira executa bloco de código. <br><br>
+			<i>if</i> (CONDIÇÃO) <i>{</i><br>
 			&nbsp;&nbsp;&nbsp;&nbsp;
 			// Bloco de código...<br>
-			}<br><br></td>
+			}<br><br>
+			<i>if</i> (CONDIÇÃO) <i></i><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			// Executa primeiro bloco de código encontrado por não fazer uso das chaves.<br>
+			<br></td>
 		</tr>
 		<tr>
-			<td class="td4">elif</td>
+			<td class="td4">el</td>
 			<td class="td1">
-				Quando vazio executa bloco padrão (comportamento como do comando <i>else</i> da linguagem C), o bloco apenas é executado se não existir nenhuma ocorrência anterior.<br><br>
-				<i>elif</i> { <i><br>
+				Quando vazio executa bloco padrão (comportamento equivalente ao comando <i>else</i> da linguagem C), o bloco apenas é executado se não existir nenhuma ocorrência anterior.<br><br>
+				<i>el</i> { <i><br>
 				&nbsp;&nbsp;&nbsp;&nbsp;
-				//code here!</i> <br>
+				// Bloco de código...</i> <br>
 				}<br><br>
-				Quando é passado parâmetros, ou seja, algum bloco de condições, a sequência de <i>if</i>s finaliza com a primeira ocorrência encontrada.<br><br>
-				<i>elif</i> (CONDIÇÃO) { <br>
+				Quando passado o bloco condicional comporta-se como comando <i>else if</i> da linguagem C.<br><br>
+				<i>el</i> (CONDIÇÃO) { <br>
 				&nbsp;&nbsp;&nbsp;&nbsp;
-				<i>// code here...</i> (comportamento como <br>
+				<i>// Comportamento equivalente ao comando <i>else if</i> da linguagem C).</i><br>
+				}<br><br>
+				
+				Funcionamento como da estrutura de comandos <i>if</i>, <i>else if</i> e <i>else</i> da linguagem C.<br><br>
+				<i>if</i> (CONDIÇÃO) <i>{</i><br>
 				&nbsp;&nbsp;&nbsp;&nbsp;
-				// do comando <i>else if</i> da linguagem C).<br>
+				// Bloco de código...<br>
+				} <i>el</i> (CONDIÇÃO) { <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<i>// Bloco de código...</i><br>
+				} <i>el</i> { <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<i>// Bloco de código...</i><br>
 				}<br>
+				
 				<br>
 			</td>
 		</tr>
@@ -243,18 +288,18 @@
 				Mesmo funcionamento que o comando na linguagem C, mas com alguns adicionais. O bloco condicional é apenas necessário declara-lo se realmente for utilizar o mesmo. Por exemplo, para um bloco com repetições infinitas podemos fazer da seguinte maneira.<br><br>
 				for { <br>
 				&nbsp;&nbsp;&nbsp;&nbsp;
-				// code here!<br>
+				// Bloco de código...<br>
 				}<br><br>
 				
 				// Imprimir números de 0 a 9...<br>
 				for (a=0; a<=9; a++) <br>
 					&nbsp;&nbsp;&nbsp;&nbsp;
-					// Code here...<br>
+					// Bloco de código...<br>
 				<br>
 				// Utilização de múltiplas variáveis.<br>
 				for (a=0,b=1,c=2; a<=9; a++,b+=2,c+=3) <br>
 					&nbsp;&nbsp;&nbsp;&nbsp;
-					// Code here...<br>
+					// Bloco de código...<br>
 				<br>
 			</td>
 		</tr>
@@ -274,17 +319,36 @@
 	</p>
 	<br>
 	<span class="titulo1" id="chamadas-ao-sistema">
-		Chamadas a funções.</span>
+		Chamadas a funções da API do sistema</span>
 	<p class="paragrafo1">
 		Especifica-se o nome da função e seus parâmetros.<br><br>
-		MessageBoxA(NULL, "Minha mensagem!", "Meu titulo!", MB_OK)<br>
+		MessageBoxA(NULL, "Minha mensagem!", "Meu titulo!", MB_OK)<br><br>
+		
+		// Quando se trata de variáveis...<br>
+		messageA = "Msg..", messageB = "Msg..."<br>
+		MessageBoxA(NULL, messageA, messageB, MB_OK)<br><br>
+		
+		Para fazer uso de funções da API do sistema, deve-se definir o protótipo da função no arquivo de configuração 'prototype.cnf'.<br><br>
+		int WINAPI MessageBox(<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;  _In_opt_ HWND    hWnd,<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;  _In_opt_ LPCTSTR lpText,<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;  _In_opt_ LPCTSTR lpCaption,<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;  _In_   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  UINT    uType<br>
+		);<br><br>
+		LRESULT CALLBACK MessageProc(<br>
+		 &nbsp;&nbsp;&nbsp;&nbsp; _In_ int    code,<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  WPARAM wParam,<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;  _In_ LPARAM lParam<br>
+		);<br>
 	</p>
 	<br>
 	<span class="titulo1" id="operadores">
-		Operadores, constantes e determinados caracteres.</span>
+		Caracteres especiais, constantes e operadores</span>
 	<p class="paragrafo1">
-		<span class="titulo2">Caracteres</span><br>
-		<table border="0" style="width:500px;">
+	
+		
+		<span class="titulo2">Caracteres especiais</span><br>
+		<table border="0" style="width:100%;">
 		<tr>
 			<td class="td3"><b><i>Caractere</i></b></td>
 			<td class="td2"><b><i>Descrição</i></b></td>
@@ -307,38 +371,28 @@
 		</tr>
 		<tr>
 			<td class="td4">,&nbsp;(<i>vírgula</i>)</td>
-			<td class="td1"><i>Vírgula</i>, finalização de definição de variável (separação de definição de múltiplas variáveis).<br></td>
+			<td class="td1"><i>Vírgula</i>, finalização de definição de variável (separação para definição de múltiplas variáveis).<br></td>
 		</tr>
 		<tr>
 			<td class="td4">{, }</td>
 			<td class="td1">Chaves, define bloco de código, com início em { e término em }.<br></td>
 		</tr>
 		<tr>
-			<td class="td4">"&nbsp;(aspas&nbsp;dupla)</td>
+			<td class="td4">"&nbsp;(aspas&nbsp;duplas)</td>
 			<td class="td1">String, define uma sequência de caracteres, com início na primeira ocorrência encontrada e término na seguinte.<br></td>
 		</tr>
 		</table>
 		
 		<br>
 		<span class="titulo2">Constantes</span><br>
-		<table border="0" style="width:500px;">
-		<tr>
-			<td class="td3"><b><i>Nome</i></b></td>
-			<td class="td2"><b><i>Valor</i></b></td>
-		</tr>
-		<tr>
-			<td class="td4">null, NULL</td>
-			<td class="td1">0<br></td>
-		</tr>
-		<tr>
-			<td class="td4">true, TRUE</td>
-			<td class="td1">1<br></td>
-		</tr>
-		<tr>
-			<td class="td4">false, FALSE</td>
-			<td class="td1">0<br></td>
-		</tr>
-		</table>
+		Para fazer uso de constantes é necessário declará-las no arquivo de configuração 'constants.cnf'. Definição e valor separados por espaço.<br><br>
+	
+		MB_OK 0<br>
+		TRUE 1<br>
+		FALSE 0<br>
+		true 1<br>
+		false 0
+		<br>
 		
 		<br>
 		<span class="titulo2">Operadores matemáticos</span><br>
@@ -399,13 +453,6 @@
 		<tr>
 			<td class="td4">/=</td>
 			<td class="td1">Divide e atribui valor.<br></td>
-		</tr>
-		<tr>
-			<td class="td4" colspan="2">
-				<i style="font-size:13px;">
-					Quando o operador é utilizado antes da variável a mesma é manipulada, digamos,<br> antes de sua utilização.
-				</i>
-			</td>
 		</tr>
 		</table>
 		
